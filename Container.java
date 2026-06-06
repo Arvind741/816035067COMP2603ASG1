@@ -34,7 +34,7 @@ public class Container {
             throw new IllegalArgumentException("Maximum weight must be greater than 0");
         }
 
-        this.containerId = String.format("CNT-%03d", nextContainerId+);
+        this.containerId = String.format("CNT-%03d", nextContainerId);
         nextContainerId++;
 
         this.destination = destination;

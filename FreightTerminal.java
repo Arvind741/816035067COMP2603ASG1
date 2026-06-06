@@ -18,6 +18,10 @@ public class FreightTerminal {
      */
     public FreightTerminal(String terminalName) {
         // TODO M2
+        this.terminalName = terminalName;
+        this.pendingPackages = new ArrayList<Package>();
+        this.activeContainers = new ArrayList<Container>();
+        this.dispatchedContainers = new ArrayList<Container>();
     }
 
     /**
