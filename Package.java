@@ -43,6 +43,39 @@ public class Package {
                    int lengthCm, int widthCm, int heightCm,
                    String destination, boolean isFragile, double declaredValue) {
         // TODO M2: Write validation and field assignments here
+
+        if (senderName == null || senderName.isEmpty()) {
+            throw new IllegalArgumentException("Sender name must not be null or empty");
+        }
+
+        if (receiverName == null || receiverName.isEmpty()) {
+            throw new IllegalArgumentException("Receiver name must not be null or empty");
+        }
+
+        if (weightKg <= 0){
+            throw new IllegalArgumentException("Weights must be greater than 0");
+        }
+
+        if(lengthCm <= 0 || widthCm <= 0 || heightCm <= 0)  {
+            throw new IllegalArgumentException("Dimensions must be greater than 0");
+        }
+
+        if(!VALID_DESTINATIONS.contains(destination)){
+            throw new IllegalArgumentException("Destination must be valid");
+        }
+
+        this.trackingId= String.format("PKG-%04d", nextTrackingNumber);
+        nextTrackingNumber++;
+
+        this.senderName = senderName;
+        this.receiverName = receiverName;
+        this.weightKg = weightKg;
+        this.lengthCm = lengthCm;
+        this.widthCm = widthCm;
+        this.heightCm = heightCm;
+        this.destination = destination;
+        this.isFragile = isFragile;
+        this.declaredValue = declaredValue;
     }
 
     /**
