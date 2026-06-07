@@ -8,7 +8,11 @@
 public class Driver {
 
     public static void main(String[] args) {
+        Package p= new Package("Alice", "Bob", 8.0, 20, 20, 20, "Trinidad");
 
+        System.out.println(p.getVolumeCm3());
+        System.out.println(p.getVolumetricWeightKg());
+        System.out.println(p.getBillableWeightKg());
 
 
         }
