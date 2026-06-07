@@ -94,6 +94,26 @@ public class Package {
     //   getTrackingId(), getSenderName(), getReceiverName(), getWeightKg(),
     //   getLengthCm(), getWidthCm(), getHeightCm(), getDestination(),
     //   isFragile(), getDeclaredValue()
+    public String getTrackingId() { return this.trackingId; }
+
+    public String getSenderName() { return this.senderName; }
+
+    public String getReceiverName() { return this.receiverName; }
+
+    public double getWeightKg() { return this.weightKg; }
+
+    public int getLengthCm() { return this.lengthCm; }
+
+    public int getWidthCm() { return this.widthCm; }
+
+    public int getHeightCm() { return this.heightCm; }
+
+    public String getDestination() { return this.destination; }
+
+    public boolean isFragile() { return this.isFragile; }
+
+    public double getDeclaredValue() { return this.declaredValue; }
+
 
     // --- Computed methods ---
 
