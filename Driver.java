@@ -9,14 +9,6 @@ public class Driver {
 
     public static void main(String[] args) {
 
-        Package p1= new Package("Alice", "Bob",5.0, 40, 30, 20, "Trinidad", false, 0.0);
-
-        try {
-            Package p2 = new Package("", "Bob", 5.0, 40, 30, 20, "Trinidad", false, 0.0);
-            System.out.println("Should not print");
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-        }
 
         }
 
@@ -68,4 +60,4 @@ public class Driver {
         // Step 10: Try to find a non-existent package
         // TODO M10: Find "PKG-9999" and print "PKG-9999: Not found" if null
     }
-}
+

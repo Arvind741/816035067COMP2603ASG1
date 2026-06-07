@@ -86,6 +86,7 @@ public class Package {
     public Package(String senderName, String receiverName, double weightKg,
                    int lengthCm, int widthCm, int heightCm, String destination) {
         // TODO M3: Write the this(...) call here
+      this(senderName, receiverName, weightKg, lengthCm, widthCm, heightCm, destination, false, 0.0);
     }
 
     // --- Getters ---
