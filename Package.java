@@ -190,7 +190,13 @@ public class Package {
      * Use String.format for formatting.
      */
     @Override
-    public String toString() {
-        return ""; // TODO M7
+    public String toString() { // TODO M7
+        String result= String.format("%s %s -> %s %.2f kg $%.2f",
+                trackingId, senderName, receiverName, destination,
+                getBillableWeightKg(), getShippingCost());
+        if (isFragile) {
+            result += " [Fragile]";
+        }
+        return result;
     }
 }

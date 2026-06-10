@@ -73,7 +73,7 @@ public class Container {
             return false;
         }
 
-        if(p.getWeightKg() + p.getWeightKg() > this.maxWeightKg) {
+        if (getCurrentWeightKg() + p.getWeightKg() > maxWeightKg) {
             return false;
         }
 
@@ -132,9 +132,10 @@ public class Container {
     public String getManifest() {// TODO M9
        StringBuilder sb = new StringBuilder();
 
-       sb.append(String.format("%s -> %s [%d packages, %.2f / %.2f kg]",
-               containerId, destination, packages.size(),
-               getCurrentWeightKg(), maxWeightKg));
+        sb.append(String.format(
+                "=== %s -> %s (%d packages, %.2f / %.2f kg) ===\n",
+                containerId, destination, getPackageCount(),
+                getCurrentWeightKg(), maxWeightKg));
 
        for (int i = 0; i < packages.size(); i++) {
            Package p = packages.get(i);
@@ -142,7 +143,7 @@ public class Container {
            sb.append(p.toString());
            sb.append("\n");
        }
-       sb.append("Container revenue: $");
+       sb.append("  Container revenue: $");
        sb.append(String.format("%.2f",getTotalRevenue()));
 
        return sb.toString();
