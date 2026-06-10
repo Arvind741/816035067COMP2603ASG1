@@ -76,24 +76,37 @@ public class FreightTerminal {
      * TODO M9: Move all activeContainers to dispatchedContainers.
      *   Clear activeContainers. Return the count dispatched.
      */
-    public int dispatchAll() {
-        return 0; // TODO M9
+    public int dispatchAll() {// TODO M9
+        int count = activeContainers.size();
+
+        dispatchedContainers.addAll(activeContainers);
+        activeContainers.clear();
+
+        return count;
     }
 
     /**
      * TODO M9: Return the sum of getTotalRevenue() across all
      *   dispatched containers.
      */
-    public double getTotalRevenue() {
-        return 0.0; // TODO M9
+    public double getTotalRevenue() { // TODO M9
+        double total= 0.0;
+        for (Container c : dispatchedContainers) {
+            total += c.getTotalRevenue();
+        }
+        return total;
     }
 
     /**
      * TODO M9: Return the sum of getPackageCount() across all
      *   dispatched containers.
      */
-    public int getTotalPackagesShipped() {
-        return 0; // TODO M9
+    public int getTotalPackagesShipped() { // TODO M9
+        int total= 0;
+        for (Container c : dispatchedContainers) {
+            total+= c.getPackageCount();
+        }
+        return total;
     }
 
     /**
@@ -101,8 +114,27 @@ public class FreightTerminal {
      *   containers for a package with the given tracking ID.
      *   Return the Package or null if not found.
      */
-    public Package findPackage(String trackingId) {
-        return null; // TODO M9
+    public Package findPackage(String trackingId) { // TODO M9
+        for(Package p : pendingPackages) {
+            if(p.getTrackingId().equals(trackingId)) {
+                return p;
+            }
+        }
+        for(Container c : activeContainers) {
+            for(Package p : c.getPackages()) {
+                if(p.getTrackingId().equals(trackingId)) {
+                    return p;
+                }
+            }
+        }
+        for(Container c : dispatchedContainers) {
+            for(Package p : c.getPackages()) {
+                if(p.getTrackingId().equals(trackingId)) {
+                    return p;
+                }
+            }
+        }
+        return null;
     }
 
     /**

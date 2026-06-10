@@ -129,8 +129,23 @@ public class Container {
      * Each package line is indented with 2 spaces.
      * Use StringBuilder and String.format.
      */
-    public String getManifest() {
-        return ""; // TODO M9
+    public String getManifest() {// TODO M9
+       StringBuilder sb = new StringBuilder();
+
+       sb.append(String.format("%s -> %s [%d packages, %.2f / %.2f kg]",
+               containerId, destination, packages.size(),
+               getCurrentWeightKg(), maxWeightKg));
+
+       for (int i = 0; i < packages.size(); i++) {
+           Package p = packages.get(i);
+           sb.append("  ");
+           sb.append(p.toString());
+           sb.append("\n");
+       }
+       sb.append("Container revenue: $");
+       sb.append(String.format("%.2f",getTotalRevenue()));
+
+       return sb.toString();
     }
 
     /**
@@ -145,7 +160,9 @@ public class Container {
      *   "CNT-001 -> Trinidad [3 packages, 17.00 / 500.00 kg]"
      */
     @Override
-    public String toString() {
-        return ""; // TODO M9
+    public String toString() {// TODO M9
+        return String.format("%s -> %s [%d packages, %.2f / %.2f kg]",
+                containerId, destination, packages.size(),
+                getCurrentWeightKg(), maxWeightKg);
     }
 }
