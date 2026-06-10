@@ -65,36 +65,57 @@ public class Container {
      *   adding p would exceed maxWeightKg.
      *   Return true on success.
      */
-    public boolean addPackage(Package p) {
-        return false; // TODO M8
+    public boolean addPackage(Package p) { // TODO M8
+        if(p == null) {
+            return false;
+        }
+        if(!p.getDestination().equals(this.destination)) {
+            return false;
+        }
+
+        if(p.getWeightKg() + p.getWeightKg() > this.maxWeightKg) {
+            return false;
+        }
+
+        this.packages.add(p);
+        return true;
     }
 
     /**
      * TODO M8: Return the sum of all packages' weightKg.
      */
-    public double getCurrentWeightKg() {
-        return 0.0; // TODO M8
+    public double getCurrentWeightKg() { // TODO M8
+        double total= 0.0;
+
+        for (Package p : this.packages) {
+            total += p.getWeightKg();
+        }
+        return total;
     }
 
     /**
      * TODO M8: Return maxWeightKg - getCurrentWeightKg()
      */
-    public double getRemainingCapacityKg() {
-        return 0.0; // TODO M8
+    public double getRemainingCapacityKg() { // TODO M8
+        return maxWeightKg - getCurrentWeightKg();
     }
 
     /**
      * TODO M8: Return the number of packages in this container.
      */
-    public int getPackageCount() {
-        return 0; // TODO M8
+    public int getPackageCount() { // TODO M8
+        return packages.size();
     }
 
     /**
      * TODO M8: Return the sum of all packages' getShippingCost().
      */
-    public double getTotalRevenue() {
-        return 0.0; // TODO M8
+    public double getTotalRevenue() { // TODO M8
+        double total = 0.0;
+        for (Package p : this.packages) {
+            total += p.getShippingCost();
+        }
+        return total;
     }
 
     /**
