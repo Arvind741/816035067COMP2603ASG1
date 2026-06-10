@@ -158,7 +158,20 @@ public class FreightTerminal {
      *     Barbados:    $1403.00 (3 packages)
      *     ...
      */
-    public void printDailyReport() {
-        // TODO M10
+    public void printDailyReport() {  // TODO M10
+      System.out.println("=== Daily Report: "+ terminalName + " ===");
+      System.out.println("Packages Received: "+getTotalPackagesShipped());
+      System.out.println("Containers Packed: "+ getTotalPackagesShipped());
+      System.out.println("Packages Shipped: "+ getTotalPackagesShipped());
+      System.out.printf("Total revenue:      $%.2f%n", getTotalRevenue());
+
+      System.out.println();
+
+      System.out.println("Revenue by Destination:");
+       for (Container c : dispatchedContainers) {
+           System.out.printf( "  %s:    $%.2f (%d packages)%n",
+                   c.getDestination(), c.getTotalRevenue(),
+                   c.getPackageCount());
+       }
     }
 }

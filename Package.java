@@ -191,12 +191,15 @@ public class Package {
      */
     @Override
     public String toString() { // TODO M7
-        String result= String.format("%s %s -> %s %.2f kg $%.2f",
+        String result = String.format(
+                "%s  %s -> %s  %s  %.2f kg  $%.2f",
                 trackingId, senderName, receiverName, destination,
                 getBillableWeightKg(), getShippingCost());
+
         if (isFragile) {
-            result += " [Fragile]";
+            result += "  [FRAGILE]";
         }
+
         return result;
     }
 }
