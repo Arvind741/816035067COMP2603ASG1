@@ -1,5 +1,4 @@
 import java.awt.*;
-import java.util.Locale;
 
 /**
  * Scripted demo of the Caribbean Cargo & Logistics System.

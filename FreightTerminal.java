@@ -161,7 +161,7 @@ public class FreightTerminal {
     public void printDailyReport() {  // TODO M10
       System.out.println("=== Daily Report: "+ terminalName + " ===");
       System.out.println("Packages Received: "+getTotalPackagesShipped());
-      System.out.println("Containers Packed: "+ getTotalPackagesShipped());
+      System.out.println("Containers Packed: "+ dispatchedContainers.size());
       System.out.println("Packages Shipped: "+ getTotalPackagesShipped());
       System.out.printf("Total revenue:      $%.2f%n", getTotalRevenue());
 
